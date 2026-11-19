@@ -1,0 +1,24 @@
+/*
+ * Highlight kind colours, shared by HighlightedText, TermsList and the legend.
+ * Each kind sets two custom properties; components only ever read those,
+ * so the mapping can change in one place.
+ */
+.hl-kind--hyperbole {
+  --hl-color: var(--risk-high);
+  --hl-ink: var(--risk-high-ink);
+}
+
+.hl-kind--emotional {
+  --hl-color: var(--risk-medium);
+  --hl-ink: var(--risk-medium-ink);
+}
+
+.hl-kind--clickbait {
+  --hl-color: var(--accent);
+  --hl-ink: var(--accent);
+}
+
+.hl-kind--other {
+  --hl-color: var(--label-3);
+  --hl-ink: var(--label-2);
+}

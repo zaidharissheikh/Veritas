@@ -1,0 +1,56 @@
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  background: var(--bg);
+}
+
+.app-shell__main {
+  flex: 1 1 auto;
+  padding-bottom: var(--space-16);
+  animation: app-shell-page-in var(--dur-slow) var(--ease-out) both;
+}
+
+.app-shell__container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+.app-shell__skip {
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-2);
+  z-index: 100;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  box-shadow: var(--shadow-float);
+  font: var(--text-subhead);
+  font-weight: 600;
+  color: var(--accent);
+  transform: translateY(-200%);
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+.app-shell__skip:focus-visible {
+  transform: translateY(0);
+}
+
+@keyframes app-shell-page-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  .app-shell__container {
+    padding-inline: var(--space-4);
+  }
+}

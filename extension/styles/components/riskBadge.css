@@ -1,0 +1,29 @@
+/* Risk badge: tinted pill with a dot and a text label. */
+
+.risk-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 28px;
+  padding: 0 var(--space-3);
+  border-radius: var(--radius-pill);
+  font: var(--text-footnote);
+  font-weight: 600;
+  letter-spacing: var(--tracking-small);
+  white-space: nowrap;
+  color: var(--risk-low-ink);
+  background: var(--risk-low-tint);
+}
+
+.risk-badge__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--risk-low);
+}
+
+.risk-badge[data-level="medium"] { color: var(--risk-medium-ink); background: var(--risk-medium-tint); }
+.risk-badge[data-level="medium"] .risk-badge__dot { background: var(--risk-medium); }
+
+.risk-badge[data-level="high"] { color: var(--risk-high-ink); background: var(--risk-high-tint); }
+.risk-badge[data-level="high"] .risk-badge__dot { background: var(--risk-high); }

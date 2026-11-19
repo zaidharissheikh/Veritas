@@ -1,0 +1,147 @@
+.kit {
+  min-height: 100dvh;
+  background: var(--bg);
+}
+
+.kit__main {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 var(--space-6) var(--space-16);
+}
+
+.kit__toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-8);
+}
+
+.kit__toc-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 var(--space-3);
+  border-radius: var(--radius-pill);
+  background: var(--fill);
+  font: var(--text-footnote);
+  font-weight: 500;
+  color: var(--label);
+}
+
+.kit__toc-link:hover {
+  background: var(--fill-hover);
+}
+
+.kit-section {
+  padding: var(--space-6) 0;
+  box-shadow: inset 0 0.5px 0 var(--separator);
+}
+
+.kit-section__header {
+  margin-bottom: var(--space-4);
+}
+
+.kit-section__title {
+  font: var(--text-title-2);
+  letter-spacing: var(--tracking-display);
+}
+
+.kit-section__note {
+  margin-top: var(--space-1);
+  font: var(--text-subhead);
+  color: var(--label-2);
+}
+
+.kit-section__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.kit-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.kit-row__label {
+  flex: 0 0 110px;
+  padding-top: var(--space-3);
+  font: var(--text-caption);
+  font-weight: 600;
+  letter-spacing: var(--tracking-small);
+  text-transform: uppercase;
+  color: var(--label-3);
+}
+
+.kit-row__items {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.kit-row__items--wrap {
+  flex-wrap: wrap;
+}
+
+.kit-muted {
+  margin-top: var(--space-1);
+  font: var(--text-footnote);
+  color: var(--label-2);
+}
+
+.kit-search {
+  width: 320px;
+}
+
+.kit-card {
+  width: 220px;
+}
+
+.kit-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-width: 420px;
+}
+
+.kit-skeleton__row {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: var(--space-1);
+}
+
+.kit-icons {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: var(--space-2);
+}
+
+.kit-icons__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-2);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+  font: var(--text-caption);
+  color: var(--label-2);
+}
+
+@media (max-width: 600px) {
+  .kit__main {
+    padding-inline: var(--space-4);
+  }
+
+  .kit-row {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .kit-row__label {
+    flex-basis: auto;
+    padding-top: 0;
+  }
+}

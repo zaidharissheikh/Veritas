@@ -1,0 +1,31 @@
+.auth-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  font: var(--text-subhead);
+}
+
+.auth-notice--info {
+  background: var(--accent-tint);
+  color: var(--label);
+}
+
+.auth-notice--info .auth-notice__icon {
+  color: var(--accent);
+}
+
+.auth-notice--error {
+  background: var(--risk-high-tint);
+  color: var(--risk-high-ink);
+}
+
+.auth-notice__icon {
+  flex: none;
+  margin-top: 1px;
+}
+
+.auth-notice__text {
+  margin: 0;
+}

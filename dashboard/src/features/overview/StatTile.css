@@ -1,0 +1,56 @@
+.stat-tile {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+.stat-tile__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.stat-tile__label {
+  font: var(--text-subhead);
+  font-weight: 600;
+  letter-spacing: var(--tracking-small);
+  color: var(--label-2);
+}
+
+.stat-tile__icon {
+  color: var(--label-3);
+  flex: none;
+}
+
+/* Grows so the detail line sits at the bottom of every tile in the row. */
+.stat-tile__value {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  min-height: 48px;
+}
+
+.stat-tile__detail {
+  font: var(--text-footnote);
+  color: var(--label-2);
+}
+
+.stat-number {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--space-1);
+}
+
+.stat-number__value {
+  font: var(--text-large-title);
+  letter-spacing: var(--tracking-display);
+  color: var(--label);
+}
+
+.stat-number__unit {
+  font: var(--text-subhead);
+  color: var(--label-2);
+}

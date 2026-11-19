@@ -1,0 +1,106 @@
+/* Sign-in sheet: dim scrim + bottom sheet that enters and exits along the same path.
+   Reduced motion cross-fades instead of sliding. Field styles live in form.css. */
+
+.sheet-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.28);
+  animation: fade-in var(--dur-base) var(--ease-out) both;
+}
+
+.sheet {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-height: 100%;
+  overflow-y: auto;
+  padding: var(--space-2) var(--space-5) var(--space-5);
+  background: var(--surface);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  box-shadow: var(--shadow-float);
+  animation: sheet-up var(--dur-slow) var(--ease-out) both;
+}
+
+.sheet-layer.is-closing .scrim { animation: fade-out var(--dur-base) var(--ease-standard) both; }
+.sheet-layer.is-closing .sheet { animation: sheet-down var(--dur-base) var(--ease-standard) both; }
+
+.sheet__grabber {
+  width: 36px;
+  height: 5px;
+  margin: 0 auto;
+  border-radius: var(--radius-pill);
+  background: var(--fill);
+}
+
+.sheet__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.sheet__title {
+  font: var(--text-title-2);
+  letter-spacing: var(--tracking-display);
+}
+
+.sheet__subtitle {
+  margin-top: var(--space-1);
+  font: var(--text-footnote);
+  color: var(--label-2);
+}
+
+/* 44px hit area around a 30px glyph circle. */
+.sheet__close {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: var(--hit-target);
+  height: var(--hit-target);
+  margin: -6px -10px 0 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.sheet__close-glyph {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: var(--label-2);
+  background: var(--fill);
+  transition: background-color var(--dur-fast) var(--ease-standard);
+}
+
+.sheet__close:hover .sheet__close-glyph { background: var(--fill-hover); }
+.sheet__close:focus-visible { box-shadow: none; }
+.sheet__close:focus-visible .sheet__close-glyph { box-shadow: var(--focus-ring); }
+
+/* ── Motion ──────────────────────────────────────────────── */
+@keyframes sheet-up { from { transform: translateY(100%); } to { transform: none; } }
+@keyframes sheet-down { to { transform: translateY(100%); } }
+@keyframes fade-out { to { opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .sheet { animation: fade-in 1ms both; }
+  .sheet-layer.is-closing .sheet { animation: fade-out 1ms both; }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .scrim { background: rgba(0, 0, 0, 0.5); }
+}

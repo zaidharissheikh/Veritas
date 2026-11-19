@@ -1,0 +1,16 @@
+.detail-error {
+  padding-top: var(--space-10);
+  animation: detail-error-in var(--dur-slow) var(--ease-out) both;
+}
+
+.detail-error__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+}
+
+@keyframes detail-error-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}

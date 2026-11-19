@@ -1,0 +1,16 @@
+# Pinned to versions with Python 3.14 wheels (verified with pip --only-binary=:all:).
+fastapi==0.160.0
+uvicorn[standard]==0.54.0
+sqlalchemy==2.1.6
+pydantic==2.14.1
+pydantic-settings==2.16.1
+python-dotenv==1.2.4
+pyjwt==2.15.1
+bcrypt==5.0.0
+email-validator==2.3.0
+httpx==0.28.1
+youtube-transcript-api==1.2.4
+
+# Tests (httpx2 is what Starlette's TestClient prefers; httpx alone triggers a deprecation warning)
+pytest==9.1.1
+httpx2==2.16.0

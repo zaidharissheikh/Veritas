@@ -1,0 +1,84 @@
+/* Reset + element defaults for the popup. Tokens come from tokens.css (never redefined here). */
+
+@font-face {
+  font-family: "Inter Variable";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../fonts/inter-latin-wght-normal.woff2") format("woff2-variations"),
+    url("../fonts/inter-latin-wght-normal.woff2") format("woff2");
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  width: 380px;
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  width: 380px;
+  font: var(--text-subhead);
+  letter-spacing: var(--tracking-body);
+  color: var(--label);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-optical-sizing: auto;
+}
+
+h1,
+h2,
+h3,
+p,
+dl,
+dd,
+figure {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button,
+a,
+summary {
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+.icon {
+  flex: none;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+/* Screen-reader-only live text (the loading status). */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

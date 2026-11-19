@@ -1,0 +1,76 @@
+/* Loading skeleton + status line (mirrors the result layout). */
+
+/* ── Loading ─────────────────────────────────────────────── */
+.skeleton {
+  --skel-shine: rgba(255, 255, 255, 0.55);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .skeleton {
+    --skel-shine: rgba(255, 255, 255, 0.07);
+  }
+}
+
+:root[data-theme="dark"] .skeleton {
+  --skel-shine: rgba(255, 255, 255, 0.07);
+}
+
+.skel {
+  position: relative;
+  overflow: hidden;
+  height: 12px;
+  border-radius: var(--radius-sm);
+  background: var(--fill);
+}
+
+.skel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, var(--skel-shine), transparent);
+  transform: translateX(-100%);
+  animation: shimmer 1.6s var(--ease-standard) infinite;
+}
+
+.skel-row,
+.skel-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.skel--chip { width: 64px; height: 24px; border-radius: var(--radius-pill); }
+.skel--wide { width: 96px; }
+.skel--title { height: 16px; }
+.skel--short { width: 60%; }
+.skel--badge { width: 112px; height: 28px; border-radius: var(--radius-pill); }
+.skel--term { height: 24px; border-radius: var(--radius-pill); }
+
+.skel-gauges {
+  display: flex;
+  justify-content: space-around;
+  padding: var(--space-2) 0;
+}
+
+.skel-gauge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.skel--dial { width: 110px; height: 110px; border-radius: 50%; }
+.skel--label { width: 84px; }
+
+@keyframes shimmer { to { transform: translateX(100%); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .skel::after { animation: none; }
+}

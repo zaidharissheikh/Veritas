@@ -1,0 +1,63 @@
+.diet-terms__body {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+
+@media (min-width: 900px) {
+  .diet-terms__body {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    gap: var(--space-8);
+    align-items: start;
+  }
+}
+
+.diet-terms__cloud {
+  min-width: 0;
+}
+
+.diet-terms__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.diet-terms__row {
+  display: grid;
+  grid-template-columns: 1.5em 1fr auto auto;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: var(--hit-target);
+  font: var(--text-subhead);
+}
+
+.diet-terms__row + .diet-terms__row {
+  border-top: 1px solid var(--separator);
+}
+
+.diet-terms__rank {
+  font: var(--text-footnote);
+  font-weight: 600;
+  color: var(--label-3);
+}
+
+.diet-terms__term {
+  font-weight: 600;
+  color: var(--label);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.diet-terms__kind {
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-pill);
+  background: var(--fill);
+  font: var(--text-caption);
+  color: var(--label-2);
+}
+
+.diet-terms__count {
+  min-width: 2.5em;
+  text-align: right;
+  color: var(--label-2);
+}

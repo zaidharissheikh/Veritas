@@ -1,0 +1,93 @@
+/* Footer account cell (inset-grouped row) and the quiet "saved to your history" note. */
+
+.account {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  min-height: var(--hit-target);
+  padding: 0 var(--space-3);
+  border: 0;
+  border-radius: var(--radius-md);
+  font: var(--text-subhead);
+  letter-spacing: var(--tracking-body);
+  text-align: left;
+  color: var(--label);
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+}
+
+button.account {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    background-color var(--dur-fast) var(--ease-standard),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+button.account:hover { background: var(--surface-2); }
+button.account:active { transform: scale(0.99); }
+
+.account__icon {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  color: var(--accent);
+  background: var(--accent-tint);
+}
+
+.account__text {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.account--in .account__text { font-weight: 500; }
+.account__chevron { color: var(--label-3); }
+
+.account .btn--plain {
+  min-height: 36px;
+  margin-right: calc(-1 * var(--space-2));
+}
+
+/* ── History note (under the scores) ─────────────────────── */
+.note {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 32px;
+  padding: 0 var(--space-2);
+  font: var(--text-footnote);
+  color: var(--label-2);
+}
+
+.note__icon { flex: none; color: var(--label-3); }
+.note--saved .note__icon { color: var(--accent); }
+.note__text { flex: 1; min-width: 0; }
+
+.note__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-height: 32px;
+  margin-right: calc(-1 * var(--space-2));
+  padding: 0 var(--space-2);
+  border: 0;
+  border-radius: var(--radius-sm);
+  font: var(--text-footnote);
+  font-weight: 500;
+  letter-spacing: inherit;
+  text-decoration: none;
+  color: var(--accent);
+  background: transparent;
+  cursor: pointer;
+  transition: background-color var(--dur-fast) var(--ease-standard);
+}
+
+.note__link:hover { background: var(--accent-tint); }

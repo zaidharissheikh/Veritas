@@ -1,0 +1,33 @@
+.meter {
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: var(--fill);
+  overflow: hidden;
+}
+
+.meter--sm {
+  height: 4px;
+}
+
+.meter__fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  transform-origin: left center;
+  animation: meter-grow var(--dur-slow) var(--ease-out) both;
+}
+
+@keyframes meter-grow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .meter__fill {
+    animation: none;
+  }
+}

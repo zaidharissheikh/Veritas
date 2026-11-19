@@ -1,0 +1,71 @@
+.segmented {
+  position: relative;
+  display: inline-flex;
+  padding: 2px;
+  border-radius: var(--radius-sm);
+  background: var(--fill);
+  isolation: isolate;
+}
+
+.segmented__thumb {
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  left: 2px;
+  border-radius: calc(var(--radius-sm) - 2px);
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+  transition: transform var(--dur-base) var(--ease-out);
+  z-index: 0;
+}
+
+.segmented__option {
+  position: relative;
+  z-index: 1;
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 32px;
+  padding: 0 var(--space-3);
+  border-radius: calc(var(--radius-sm) - 2px);
+  font: var(--text-footnote);
+  font-weight: 500;
+  letter-spacing: var(--tracking-small);
+  color: var(--label-2);
+  white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    color var(--dur-base) var(--ease-standard),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.segmented__option.is-active {
+  color: var(--label);
+  font-weight: 600;
+}
+
+.segmented__option:active {
+  transform: scale(0.96);
+}
+
+.segmented__option:focus-visible {
+  box-shadow: var(--focus-ring);
+  border-radius: calc(var(--radius-sm) - 2px);
+}
+
+/* The control is visually 36px tall; extend the hit area to 44px. */
+.segmented::before {
+  content: '';
+  position: absolute;
+  inset: -4px 0;
+}
+
+.segmented--sm .segmented__option {
+  min-height: 26px;
+  padding-inline: var(--space-2);
+  font: var(--text-caption);
+  font-weight: 500;
+}
+
+.segmented--sm .segmented__option.is-active {
+  font-weight: 600;
+}

@@ -1,0 +1,87 @@
+.trend-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+.trend-card__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.trend-card__title {
+  font: var(--text-headline);
+  color: var(--label);
+}
+
+.trend-card__sub {
+  font: var(--text-footnote);
+  color: var(--label-2);
+  margin-top: 2px;
+}
+
+.trend-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  min-height: var(--hit-target);
+  margin-top: calc(-1 * var(--space-3));
+  margin-right: calc(-1 * var(--space-2));
+  padding: 0 var(--space-2);
+  font: var(--text-subhead);
+  font-weight: 500;
+  color: var(--accent);
+  border-radius: var(--radius-sm);
+  transition: color var(--dur-fast) var(--ease-standard);
+}
+
+.trend-card__link:hover {
+  color: var(--accent-hover);
+}
+
+.trend-card__chart {
+  position: relative;
+  width: 100%;
+}
+
+/* Recharts draws a focus outline on the SVG wrapper; the card is what we style. */
+.trend-card__chart .recharts-wrapper:focus,
+.trend-card__chart .recharts-surface:focus {
+  outline: none;
+}
+
+.trend-card__empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font: var(--text-subhead);
+  color: var(--label-3);
+  background: var(--surface-2);
+  border-radius: var(--radius-md);
+}
+
+.trend-tip {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--space-2) var(--space-3);
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-float);
+  pointer-events: none;
+}
+
+.trend-tip__date {
+  font: var(--text-caption);
+  color: var(--label-2);
+}
+
+.trend-tip__score {
+  font: var(--text-headline);
+  color: var(--label);
+}

@@ -1,0 +1,17 @@
+# secrets
+.env
+*.env.local
+
+# dependencies / build output
+node_modules/
+dist/
+__pycache__/
+.venv/
+*.pyc
+
+# local databases
+*.db
+*.sqlite3
+
+# Docs
+docs/

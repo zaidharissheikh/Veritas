@@ -1,0 +1,24 @@
+.diet-trend__plot {
+  width: 100%;
+  font: var(--text-caption);
+  letter-spacing: var(--tracking-small);
+  /* Axis ticks line up as columns of numbers. */
+  font-variant-numeric: tabular-nums;
+}
+
+.diet-trend__plot .recharts-text {
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
+}
+
+.diet-trend__plot .recharts-surface:focus-visible,
+.diet-trend__plot .recharts-wrapper:focus-visible {
+  box-shadow: var(--focus-ring);
+  border-radius: var(--radius-sm);
+}
+
+/* The default recharts tooltip wrapper draws an outline on focus; our glass
+   surface carries its own shape instead. */
+.diet-trend__plot .recharts-tooltip-wrapper {
+  outline: none;
+}

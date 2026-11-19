@@ -1,0 +1,86 @@
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.history-list__count {
+  font: var(--text-footnote);
+  letter-spacing: var(--tracking-small);
+  color: var(--label-2);
+  padding-inline: var(--space-1);
+  font-variant-numeric: tabular-nums;
+}
+
+.history-list__count-skeleton {
+  margin-inline: var(--space-1);
+}
+
+.history-list__card {
+  overflow: hidden;
+  transition: opacity var(--dur-base) var(--ease-standard);
+}
+
+/* Refetching: keep the previous rows in place, just quieter. */
+.history-list__card--busy {
+  opacity: 0.55;
+}
+
+/* Inset separators, Apple grouped-list style: the line starts after the leading icon. */
+.history-list__row + .history-list__row {
+  border-top: 1px solid var(--separator);
+}
+
+/* First load only: a soft rise, lightly staggered. */
+.history-list__rows--enter .history-list__row {
+  animation: history-row-in var(--dur-slow) var(--ease-out) both;
+  animation-delay: calc(var(--row-index, 0) * 28ms);
+}
+
+@keyframes history-row-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .history-list__rows--enter .history-list__row {
+    animation: none;
+  }
+}
+
+/* Skeleton rows mirror ResultRow's grid: tile · text · scores · badge. */
+.history-skeleton__row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  min-height: 72px;
+  padding: var(--space-3) var(--space-5);
+}
+
+.history-skeleton__text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.history-skeleton__scores {
+  display: flex;
+  gap: var(--space-5);
+}
+
+@media (max-width: 720px) {
+  .history-skeleton__row {
+    padding-inline: var(--space-4);
+  }
+
+  .history-skeleton__scores {
+    display: none;
+  }
+}

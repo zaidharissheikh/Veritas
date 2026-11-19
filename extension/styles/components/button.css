@@ -1,0 +1,63 @@
+/* Buttons: primary (accent), secondary (fill), plain (text). Press state on pointer-down. */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--hit-target);
+  padding: 0 var(--space-5);
+  border: 0;
+  border-radius: var(--radius-pill);
+  font: var(--text-subhead);
+  font-weight: 600;
+  letter-spacing: var(--tracking-body);
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-standard);
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn--primary {
+  color: var(--on-accent);
+  background: var(--accent);
+}
+
+.btn--primary:hover { background: var(--accent-hover); }
+.btn--primary:active { background: var(--accent-pressed); }
+
+.btn--secondary {
+  color: var(--label);
+  background: var(--fill);
+}
+
+.btn--secondary:hover { background: var(--fill-hover); }
+
+.btn--plain {
+  padding: 0 var(--space-3);
+  font-weight: 500;
+  color: var(--accent);
+  background: transparent;
+}
+
+.btn--plain:hover { background: var(--accent-tint); }
+
+.btn--block {
+  width: 100%;
+}
+
+.btn:disabled {
+  cursor: default;
+  opacity: 0.6;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn:active { transform: none; }
+}

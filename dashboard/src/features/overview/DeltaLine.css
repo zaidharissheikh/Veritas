@@ -1,0 +1,21 @@
+.delta-line {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font: var(--text-footnote);
+  font-weight: 500;
+  color: var(--label-2);
+}
+
+.delta-line__icon {
+  flex: none;
+}
+
+/* Risk colour only on risk data; the icon + words carry the meaning. */
+.delta-line--better {
+  color: var(--risk-low-ink);
+}
+
+.delta-line--worse {
+  color: var(--risk-high-ink);
+}

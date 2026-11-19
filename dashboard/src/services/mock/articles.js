@@ -1,0 +1,45 @@
+// Article catalogue: headline + opening lines (≤ 60 words together).
+// `tone` is the base manipulation likelihood 0..1 the generator starts from.
+
+export const ARTICLE_SOURCES = {
+  calm: ['reuters.com', 'apnews.com', 'bbc.com', 'theguardian.com', 'nytimes.com', 'ft.com'],
+  mixed: ['cnn.com', 'wired.com', 'theverge.com', 'vox.com', 'businessinsider.com', 'forbes.com'],
+  loud: ['dailymail.co.uk', 'nypost.com', 'thesun.co.uk', 'buzzfeed.com', 'mirror.co.uk', 'viralnewsdaily.com'],
+};
+
+export const ARTICLES = [
+  { tone: 0.12, title: 'Central bank holds rates steady as inflation cools for third month', body: 'Policymakers voted to keep the benchmark rate unchanged, citing a gradual easing in consumer prices and steady employment figures across most sectors.' },
+  { tone: 0.15, title: 'City council approves new cycling lanes along the riverfront', body: 'The plan adds six kilometres of protected lanes over two years. Officials said construction will begin in spring after a final public consultation.' },
+  { tone: 0.18, title: 'Researchers map how coral reefs recover after marine heatwaves', body: 'A decade-long survey of Pacific reefs found that sites with strong fish populations rebuilt coral cover almost twice as fast as degraded ones.' },
+  { tone: 0.2, title: 'Electric vehicle sales rise 14 percent in the first quarter', body: 'Registrations grew in most regions, led by smaller models. Analysts expect growth to slow later in the year as subsidies in several markets expire.' },
+  { tone: 0.22, title: 'New study links regular walking to better sleep in older adults', body: 'Participants who walked thirty minutes most days reported falling asleep faster, although researchers caution the effect was modest and varied widely.' },
+  { tone: 0.25, title: 'Parliament debates revised data protection bill ahead of summer vote', body: 'The draft tightens rules on automated decision-making and gives regulators new audit powers. Industry groups asked for a longer transition period.' },
+  { tone: 0.28, title: 'Local library expands weekend hours after record visitor numbers', body: 'Branch managers said demand for study space and children’s programmes drove the change. The extra hours will be reviewed in six months.' },
+  { tone: 0.3, title: 'Airline adds direct route between Manchester and Toronto', body: 'The three-times-weekly service starts in June. The carrier said the route responds to steady business and family travel demand between the two cities.' },
+  { tone: 0.33, title: 'Why your energy bill may still rise even as wholesale prices fall', body: 'Standing charges and network costs now make up a larger share of the typical bill, which is why savings take months to reach households.' },
+  { tone: 0.36, title: 'Warning issued as heavy rain expected to hit coastal towns this weekend', body: 'Forecasters expect up to 60 millimetres in some areas. Residents are advised to check flood alerts and avoid driving through standing water.' },
+  { tone: 0.4, title: 'The hidden costs of free delivery that retailers do not advertise', body: 'Returns, packaging and last-mile logistics are quietly folded into prices. Several chains have begun charging fees for low-value orders.' },
+  { tone: 0.42, title: 'Tech giant’s new headset finally revealed, and the price is steep', body: 'The device launches next month with a thinner design and longer battery life. Early reviewers praised the display but questioned the cost.' },
+  { tone: 0.45, title: 'Is remote work really over? What the latest office data shows', body: 'Occupancy has climbed but remains well below pre-2020 levels. Hybrid patterns now dominate, with midweek peaks and quiet Fridays.' },
+  { tone: 0.48, title: 'Doctors raise alarming concerns about surge in energy drink use among teens', body: 'A survey of secondary schools found a third of pupils drank them weekly. Clinicians warn of sleep disruption and anxiety in heavy users.' },
+  { tone: 0.5, title: 'Housing market faces a dangerous turning point, economists warn', body: 'Mortgage approvals fell for a second month while asking prices held steady. Analysts disagree on whether a correction is coming.' },
+  { tone: 0.53, title: 'Minister slams critics over delayed rail upgrade', body: 'The project is now four years behind schedule. In a heated session the minister blamed contractors, while opposition members called for an inquiry.' },
+  { tone: 0.56, title: 'The secret reason your phone battery dies so fast', body: 'Background app refresh and poor signal are the usual culprits. We tested common fixes to find which ones actually extend battery life.' },
+  { tone: 0.58, title: 'Scandal grows as leaked memo shows officials knew about water contamination', body: 'The internal document, dated last autumn, flagged elevated lead readings months before residents were told. The agency says it is reviewing procedures.' },
+  { tone: 0.6, title: 'Experts fear massive disruption as port strike enters second week', body: 'Container traffic has been diverted to smaller harbours. Retailers say shelves remain stocked for now but warn of delays if talks collapse.' },
+  { tone: 0.63, title: 'Chaos at airport after baggage system meltdown strands thousands', body: 'A software fault halted belts for six hours. The operator apologised and said most passengers were reunited with luggage by the next morning.' },
+  { tone: 0.66, title: 'Nobody expected this: the unbelievable twist in the pension reform vote', body: 'A late amendment passed by two votes after several members switched sides. Unions welcomed the outcome, which raises the minimum guarantee.' },
+  { tone: 0.7, title: 'Furious parents demand answers after school bus nightmare', body: 'Pupils waited two hours in the cold when a replacement coach failed to arrive. The council said the contractor has been placed on notice.' },
+  { tone: 0.72, title: 'Explosive report exposes the truth about ultra-processed foods', body: 'The review links high consumption to several health risks, though the authors stress the evidence is observational and causation is not proven.' },
+  { tone: 0.75, title: 'You won’t believe what this town did to stop speeding drivers', body: 'Residents painted optical-illusion crossings on the main road. Early readings show average speeds fell by about four miles per hour.' },
+  { tone: 0.78, title: 'Terrifying new scam that could empty your bank account overnight', body: 'Fraudsters pose as bank staff and ask victims to move money to a “safe” account. Banks say they will never ask customers to do this.' },
+  { tone: 0.8, title: 'Devastating blow for commuters as fares set to skyrocket again', body: 'Regulated fares will rise 4.9 percent in March, in line with inflation. Operators say the increase funds maintenance and new rolling stock.' },
+  { tone: 0.83, title: 'Shocking footage shows celebrity humiliated at awards ceremony', body: 'A microphone failure cut the acceptance speech short. The presenter later joked about it on stage and the ceremony continued without further issues.' },
+  { tone: 0.85, title: 'Bombshell: everyone has been using this kitchen gadget wrong', body: 'A manufacturer’s video explained the blade guard is reversible. The clip went viral, although the manual has described the feature for years.' },
+  { tone: 0.88, title: 'Doctors horrified by miracle diet that is sweeping social media', body: 'The plan restricts meals to a four-hour window. Dietitians say some people lose weight on it but warn it is unsuitable for many.' },
+  { tone: 0.9, title: 'Catastrophic outrage as mind-blowing secret about tap water finally exposed', body: 'The water company confirmed a routine chlorine adjustment. Regulators said readings remained within safe limits throughout the period.' },
+  { tone: 0.92, title: 'Insane jaw-dropping hack destroyed everything we thought about sleep', body: 'A single small study suggests cooler bedrooms help. Sleep researchers said the finding is consistent with decades of existing guidance.' },
+  { tone: 0.94, title: 'Panic spreads: dangerous hidden threat in every home revealed', body: 'The article refers to carbon monoxide. Safety groups recommend fitting an alarm, which most households already have.' },
+  { tone: 0.35, title: 'How a small bakery doubled sales by cutting its menu in half', body: 'Owners removed slow sellers and focused on six core loaves. Shorter queues and less waste followed, they say, within two months.' },
+  { tone: 0.26, title: 'University opens new centre for battery research with industry partners', body: 'The facility will study recycling and solid-state cells. Partners include two automakers and a regional grid operator.' },
+];

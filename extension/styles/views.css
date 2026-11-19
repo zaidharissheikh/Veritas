@@ -1,0 +1,82 @@
+/* Result view layout: page header, scores, stance / video, section heads. */
+
+/* ── Result: page header ─────────────────────────────────── */
+.page-head { display: flex; flex-direction: column; gap: var(--space-2); }
+.page-head__chips { display: flex; align-items: center; gap: var(--space-2); min-width: 0; }
+
+.page-head__title {
+  font: var(--text-headline);
+  letter-spacing: var(--tracking-body);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+}
+
+/* ── Result: scores ──────────────────────────────────────── */
+.gauges {
+  display: flex;
+  justify-content: space-around;
+  gap: var(--space-2);
+  padding: var(--space-1) 0;
+}
+
+.overall {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+  padding: var(--space-3);
+  background: var(--surface-2);
+  border-radius: var(--radius-md);
+}
+
+.overall__text { display: flex; flex-direction: column; gap: 2px; }
+.overall__label { font: var(--text-caption); color: var(--label-2); }
+.overall__score { font: var(--text-headline); font-variant-numeric: tabular-nums; }
+
+.summary { margin-top: var(--space-3); font: var(--text-subhead); color: var(--label); }
+
+/* ── Result: stance row / video card ─────────────────────── */
+.row { display: flex; align-items: center; gap: var(--space-3); min-height: var(--hit-target); }
+
+.row__lead {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  color: var(--accent);
+  background: var(--accent-tint);
+}
+
+.row__text { display: flex; flex: 1; flex-direction: column; min-width: 0; }
+.row__label { font: var(--text-subhead); font-weight: 500; }
+.row__hint { font: var(--text-caption); color: var(--label-2); }
+.row__value { font: var(--text-subhead); font-weight: 600; }
+
+.video { display: flex; flex-direction: column; gap: var(--space-3); }
+
+.video__frame {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--fill);
+}
+
+.video__thumb { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.video__placeholder { display: flex; color: var(--label-2); }
+.video__meta { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-3); }
+
+/* ── Result: section heads + extraction card ─────────────── */
+.section__head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: var(--space-2); }
+.section__title { font: var(--text-subhead); font-weight: 600; }
+.section__hint { font: var(--text-caption); color: var(--label-3); }
+.card--extraction { padding: 0; }

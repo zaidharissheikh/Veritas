@@ -1,0 +1,95 @@
+.word-cloud {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.word-cloud__terms {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2) var(--space-3);
+  padding: var(--space-2) 0;
+}
+
+.word-cloud__term {
+  --cloud-tint: var(--fill);
+  --cloud-ink: var(--label);
+  display: inline-block;
+  padding: 0.18em 0.6em;
+  border-radius: var(--radius-pill);
+  background: var(--cloud-tint);
+  color: var(--cloud-ink);
+  line-height: 1.25;
+  letter-spacing: var(--tracking-body);
+  cursor: default;
+  animation: word-cloud-in var(--dur-slow) var(--ease-out) both;
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+.word-cloud__term:hover {
+  transform: translateY(-1px) scale(1.03);
+}
+
+/* Kind tints: the only place these semantic tints appear outside risk data. */
+.word-cloud__term--hyperbole,
+.word-cloud__key--hyperbole {
+  --cloud-tint: var(--risk-high-tint);
+  --cloud-ink: var(--risk-high-ink);
+}
+
+.word-cloud__term--emotional,
+.word-cloud__key--emotional {
+  --cloud-tint: var(--risk-medium-tint);
+  --cloud-ink: var(--risk-medium-ink);
+}
+
+.word-cloud__term--clickbait,
+.word-cloud__key--clickbait {
+  --cloud-tint: var(--accent-tint);
+  --cloud-ink: var(--accent);
+}
+
+.word-cloud__legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2) var(--space-4);
+}
+
+.word-cloud__key {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font: var(--text-caption);
+  font-weight: 500;
+  letter-spacing: var(--tracking-small);
+  color: var(--label-2);
+}
+
+.word-cloud__swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  background: var(--cloud-ink);
+  opacity: 0.85;
+}
+
+.word-cloud__empty {
+  font: var(--text-subhead);
+  color: var(--label-2);
+  text-align: center;
+  padding: var(--space-6) 0;
+}
+
+@keyframes word-cloud-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,176 @@
+/*
+ * VERITAS design tokens — single source of truth.
+ * Apple-style: system typography, calm neutrals, one accent, semantic risk colors.
+ *
+ * Canonical copy lives here (shared/tokens.css). Run `node scripts/sync-tokens.mjs`
+ * to copy it into dashboard/src/styles/tokens.css and extension/styles/tokens.css.
+ * Never edit the copies by hand.
+ */
+
+:root {
+  color-scheme: light dark;
+
+  /* ── Typography ───────────────────────────────────────────── */
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
+    "Inter Variable", "Inter", "Segoe UI Variable", "Segoe UI", system-ui, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+
+  /* Apple type ramp: size / line-height / tracking */
+  --text-large-title: 700 34px/41px var(--font-sans);
+  --text-title-1: 700 28px/34px var(--font-sans);
+  --text-title-2: 600 22px/28px var(--font-sans);
+  --text-title-3: 600 20px/25px var(--font-sans);
+  --text-headline: 600 17px/22px var(--font-sans);
+  --text-body: 400 17px/22px var(--font-sans);
+  --text-callout: 400 16px/21px var(--font-sans);
+  --text-subhead: 400 15px/20px var(--font-sans);
+  --text-footnote: 400 13px/18px var(--font-sans);
+  --text-caption: 400 12px/16px var(--font-sans);
+
+  --tracking-display: -0.022em; /* large sizes tighten */
+  --tracking-body: -0.01em;
+  --tracking-small: 0.005em;
+
+  /* ── Spacing (4pt grid) ───────────────────────────────────── */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* ── Shape ────────────────────────────────────────────────── */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 22px;
+  --radius-pill: 999px;
+  --hit-target: 44px; /* minimum touch/click target */
+
+  /* ── Motion ───────────────────────────────────────────────── */
+  --ease-standard: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --ease-out: cubic-bezier(0.32, 0.72, 0, 1); /* iOS-style decelerate */
+  --dur-fast: 120ms;
+  --dur-base: 220ms;
+  --dur-slow: 420ms;
+
+  /* ── Risk semantics (shared by gauges, badges, charts) ───── */
+  --risk-low: #34c759;
+  --risk-medium: #ff9f0a;
+  --risk-high: #ff3b30;
+}
+
+/* ── Light ──────────────────────────────────────────────────── */
+:root,
+:root[data-theme="light"] {
+  --bg: #f5f5f7; /* page / grouped background */
+  --surface: #ffffff; /* cards, sheets */
+  --surface-2: #fbfbfd; /* inset areas inside cards */
+  --surface-glass: rgba(255, 255, 255, 0.72); /* nav bars, toolbars */
+
+  --label: #1d1d1f;
+  --label-2: #6e6e73; /* secondary text — passes 4.5:1 on white */
+  --label-3: #86868b; /* tertiary, non-essential only */
+  --separator: rgba(60, 60, 67, 0.14);
+  --fill: rgba(120, 120, 128, 0.12); /* inputs, segmented controls, tracks */
+  --fill-hover: rgba(120, 120, 128, 0.18);
+
+  --accent: #2da44e;
+  --accent-hover: #37b458;
+  --accent-pressed: #279642;
+  --accent-tint: rgba(45, 164, 78, 0.1);
+  --on-accent: #ffffff;
+
+  --risk-low-tint: rgba(52, 199, 89, 0.14);
+  --risk-medium-tint: rgba(255, 159, 10, 0.16);
+  --risk-high-tint: rgba(255, 59, 48, 0.12);
+  --risk-low-ink: #1f7a3a; /* text on tint */
+  --risk-medium-ink: #9a5b00;
+  --risk-high-ink: #c4281c;
+
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 20px rgba(0, 0, 0, 0.05);
+  --shadow-float: 0 8px 32px rgba(0, 0, 0, 0.12);
+  --focus-ring: 0 0 0 4px rgba(45, 164, 78, 0.35);
+  --blur-glass: saturate(180%) blur(24px);
+}
+
+/* ── Dark ───────────────────────────────────────────────────── */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #000000;
+    --surface: #1c1c1e;
+    --surface-2: #2c2c2e;
+    --surface-glass: rgba(28, 28, 30, 0.72);
+
+    --label: #f5f5f7;
+    --label-2: #a1a1a6;
+    --label-3: #6e6e73;
+    --separator: rgba(84, 84, 88, 0.55);
+    --fill: rgba(120, 120, 128, 0.24);
+    --fill-hover: rgba(120, 120, 128, 0.32);
+
+    --accent: #4ac26b;
+    --accent-hover: #5ed47d;
+    --accent-pressed: #3fb85e;
+    --accent-tint: rgba(74, 194, 107, 0.16);
+    --on-accent: #ffffff;
+
+    --risk-low-tint: rgba(48, 209, 88, 0.18);
+    --risk-medium-tint: rgba(255, 159, 10, 0.2);
+    --risk-high-tint: rgba(255, 69, 58, 0.2);
+    --risk-low-ink: #5fe083;
+    --risk-medium-ink: #ffb340;
+    --risk-high-ink: #ff6961;
+
+    --shadow-card: 0 0 0 0.5px rgba(255, 255, 255, 0.06);
+    --shadow-float: 0 8px 32px rgba(0, 0, 0, 0.6);
+    --focus-ring: 0 0 0 4px rgba(74, 194, 107, 0.45);
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #000000;
+  --surface: #1c1c1e;
+  --surface-2: #2c2c2e;
+  --surface-glass: rgba(28, 28, 30, 0.72);
+  --label: #f5f5f7;
+  --label-2: #a1a1a6;
+  --label-3: #6e6e73;
+  --separator: rgba(84, 84, 88, 0.55);
+  --fill: rgba(120, 120, 128, 0.24);
+  --fill-hover: rgba(120, 120, 128, 0.32);
+  --accent: #4ac26b;
+  --accent-hover: #5ed47d;
+  --accent-pressed: #3fb85e;
+  --accent-tint: rgba(74, 194, 107, 0.16);
+  --on-accent: #ffffff;
+  --risk-low-tint: rgba(48, 209, 88, 0.18);
+  --risk-medium-tint: rgba(255, 159, 10, 0.2);
+  --risk-high-tint: rgba(255, 69, 58, 0.2);
+  --risk-low-ink: #5fe083;
+  --risk-medium-ink: #ffb340;
+  --risk-high-ink: #ff6961;
+  --shadow-card: 0 0 0 0.5px rgba(255, 255, 255, 0.06);
+  --shadow-float: 0 8px 32px rgba(0, 0, 0, 0.6);
+  --focus-ring: 0 0 0 4px rgba(74, 194, 107, 0.45);
+}
+
+/* ── Reduced motion / transparency ──────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 1ms;
+    --dur-base: 1ms;
+    --dur-slow: 1ms;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  :root {
+    --surface-glass: var(--surface);
+    --blur-glass: none;
+  }
+}

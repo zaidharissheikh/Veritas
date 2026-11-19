@@ -1,0 +1,51 @@
+/* Empty / failure / error states: centred icon, title, message, one action. */
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-8) var(--space-5) var(--space-6);
+  text-align: center;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.empty__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: var(--space-2);
+  border-radius: 50%;
+  color: var(--label-2);
+  background: var(--fill);
+}
+
+.empty--warn .empty__icon {
+  color: var(--risk-medium-ink);
+  background: var(--risk-medium-tint);
+}
+
+.empty__title {
+  font: var(--text-headline);
+  letter-spacing: var(--tracking-body);
+}
+
+.empty__message {
+  max-width: 300px;
+  font: var(--text-subhead);
+  color: var(--label-2);
+}
+
+.empty__detail {
+  max-width: 300px;
+  font: var(--text-footnote);
+  color: var(--label-3);
+}
+
+.empty__action {
+  margin-top: var(--space-3);
+}

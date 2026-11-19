@@ -1,0 +1,65 @@
+/* XAI word cloud: size + weight scale with --w (0..1); tint by data-kind. */
+
+.cloud__terms {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px 8px;
+  padding: var(--space-2) 0;
+}
+
+.cloud__term {
+  --w: 0.5;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  font-size: calc(12px + var(--w) * 11px);
+  font-weight: calc(400 + var(--w) * 300);
+  line-height: 1.25;
+  letter-spacing: var(--tracking-body);
+  opacity: calc(0.65 + var(--w) * 0.35);
+  color: var(--risk-high-ink);
+  background: var(--risk-high-tint);
+}
+
+.cloud__term[data-kind="emotional"] {
+  color: var(--risk-medium-ink);
+  background: var(--risk-medium-tint);
+}
+
+.cloud__term[data-kind="clickbait"] {
+  color: var(--accent);
+  background: var(--accent-tint);
+}
+
+.cloud__legend {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-top: var(--space-2);
+  font: var(--text-caption);
+  color: var(--label-2);
+}
+
+.cloud__legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cloud__swatch {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--risk-high);
+}
+
+.cloud__legend-item[data-kind="emotional"] .cloud__swatch { background: var(--risk-medium); }
+.cloud__legend-item[data-kind="clickbait"] .cloud__swatch { background: var(--accent); }
+
+.cloud__empty {
+  padding: var(--space-2) 0;
+  font: var(--text-footnote);
+  color: var(--label-2);
+  text-align: center;
+}

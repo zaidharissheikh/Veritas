@@ -1,0 +1,90 @@
+/* "Extracted content" disclosure: summary row (44px) + definition rows + preview. */
+
+.xpanel {
+  border-radius: var(--radius-lg);
+}
+
+.xpanel__summary {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--hit-target);
+  padding: 0 var(--space-4);
+  border-radius: var(--radius-lg);
+  font: var(--text-subhead);
+  font-weight: 600;
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.xpanel__summary::-webkit-details-marker {
+  display: none;
+}
+
+.xpanel__summary:hover {
+  background: var(--surface-2);
+}
+
+.xpanel[open] .xpanel__summary {
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.xpanel__chevron {
+  color: var(--label-3);
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+.xpanel[open] .xpanel__chevron {
+  transform: rotate(90deg);
+}
+
+.xpanel__title {
+  flex: 1;
+}
+
+.xpanel__meta {
+  font: var(--text-caption);
+  color: var(--label-2);
+}
+
+.xpanel__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-1) var(--space-4) var(--space-4);
+  animation: fade-in var(--dur-base) var(--ease-out) both;
+}
+
+.xpanel__rows {
+  display: grid;
+  grid-template-columns: 76px 1fr;
+  gap: 6px var(--space-3);
+  font: var(--text-footnote);
+}
+
+.xpanel__term {
+  color: var(--label-2);
+}
+
+.xpanel__value {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  color: var(--label);
+}
+
+.xpanel__preview {
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  font: var(--text-footnote);
+  color: var(--label-2);
+  background: var(--surface-2);
+}
+
+.xpanel__actions {
+  display: flex;
+  justify-content: flex-end;
+}

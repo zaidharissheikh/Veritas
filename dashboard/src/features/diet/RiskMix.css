@@ -1,0 +1,75 @@
+/* Horizontal stacked bar; the 2px gaps are the surface showing through. */
+.diet-mix__bar {
+  display: flex;
+  gap: 2px;
+  height: 14px;
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  background: var(--fill);
+}
+
+.diet-mix__seg {
+  flex-basis: 0;
+  min-width: 4px;
+  transform-origin: left center;
+  animation: diet-mix-grow var(--dur-slow) var(--ease-out) both;
+}
+
+.diet-mix__seg.is-low,
+.diet-mix__dot.is-low { background: var(--risk-low); }
+.diet-mix__seg.is-medium,
+.diet-mix__dot.is-medium { background: var(--risk-medium); }
+.diet-mix__seg.is-high,
+.diet-mix__dot.is-high { background: var(--risk-high); }
+
+@keyframes diet-mix-grow {
+  from { transform: scaleX(0.6); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+
+.diet-mix__legend {
+  display: flex;
+  flex-direction: column;
+  margin-top: var(--space-4);
+}
+
+.diet-mix__row {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: var(--hit-target);
+  font: var(--text-subhead);
+}
+
+.diet-mix__row + .diet-mix__row {
+  border-top: 1px solid var(--separator);
+}
+
+.diet-mix__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-pill);
+}
+
+.diet-mix__label {
+  color: var(--label);
+}
+
+.diet-mix__pct {
+  font-weight: 600;
+  color: var(--label);
+}
+
+.diet-mix__count {
+  min-width: 7.5em;
+  text-align: right;
+  font: var(--text-footnote);
+  color: var(--label-2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .diet-mix__seg {
+    animation: none;
+  }
+}

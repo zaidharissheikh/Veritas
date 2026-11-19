@@ -1,0 +1,42 @@
+/* Rounded glass surface, like a Health-app annotation. */
+.chart-tip {
+  min-width: 132px;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--surface-glass);
+  -webkit-backdrop-filter: var(--blur-glass);
+  backdrop-filter: var(--blur-glass);
+  box-shadow: var(--shadow-float), 0 0 0 0.5px var(--separator);
+  color: var(--label);
+  letter-spacing: var(--tracking-small);
+  pointer-events: none;
+}
+
+.chart-tip__date {
+  font: var(--text-caption);
+  font-weight: 600;
+  color: var(--label-2);
+}
+
+.chart-tip__value {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-1);
+  margin-top: var(--space-1);
+}
+
+.chart-tip__number {
+  font: var(--text-title-3);
+  letter-spacing: var(--tracking-display);
+}
+
+.chart-tip__unit,
+.chart-tip__count {
+  font: var(--text-caption);
+  color: var(--label-2);
+}
+
+.chart-tip__count {
+  margin-top: 2px;
+  font-variant-numeric: tabular-nums;
+}

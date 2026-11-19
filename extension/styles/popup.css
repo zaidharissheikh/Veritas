@@ -1,0 +1,136 @@
+/* Popup shell: scroll container, glass top bar, cards, footer, entrance motion. */
+
+.popup {
+  display: flex;
+  flex-direction: column;
+  width: 380px;
+  max-height: 580px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--fill) transparent;
+  background: var(--bg);
+}
+
+/* ── Top bar ─────────────────────────────────────────────── */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 52px;
+  padding: 0 var(--space-4);
+  background: var(--surface-glass);
+  -webkit-backdrop-filter: var(--blur-glass);
+  backdrop-filter: var(--blur-glass);
+  box-shadow: 0 0.5px 0 var(--separator);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.brand__mark {
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-pill);
+  object-fit: contain;
+}
+
+.brand__name {
+  font: var(--text-title-3);
+  font-weight: 700;
+  letter-spacing: var(--tracking-display);
+}
+
+/* ── Content + cards ─────────────────────────────────────── */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4) var(--space-2);
+}
+
+.view {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.card {
+  padding: var(--space-4);
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+/* ── Footer: account row, then disclaimer + dashboard link ── */
+.foot {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: 0 var(--space-4) var(--space-3);
+}
+
+.foot__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-right: calc(-1 * var(--space-1));
+}
+
+.foot__note {
+  flex: 1;
+  font: var(--text-caption);
+  letter-spacing: var(--tracking-small);
+  color: var(--label-3);
+}
+
+.foot__row .btn {
+  flex: none;
+  white-space: nowrap;
+}
+
+/* The sign-in sheet is modal: the popup behind it stays put. */
+.has-sheet .popup {
+  overflow: hidden;
+}
+
+/* ── Entrance motion (staggered per section via --i) ─────── */
+.rise {
+  animation: rise var(--dur-slow) var(--ease-out) both;
+  animation-delay: calc(var(--i, 0) * 70ms);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise {
+    animation: fade-in 1ms both;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

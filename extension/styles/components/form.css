@@ -1,0 +1,80 @@
+/* Sign-in form: inset-grouped fields (one tinted group, hairline between rows), inline error. */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-md);
+  background: var(--fill);
+  transition: box-shadow var(--dur-fast) var(--ease-standard);
+}
+
+.field-group:focus-within {
+  box-shadow: var(--focus-ring);
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: var(--hit-target);
+  padding: 0 var(--space-4);
+}
+
+.field + .field {
+  box-shadow: 0 -0.5px 0 var(--separator);
+}
+
+.field__label {
+  flex: none;
+  width: 76px;
+  font: var(--text-subhead);
+  color: var(--label);
+}
+
+.field__input {
+  flex: 1;
+  min-width: 0;
+  height: var(--hit-target);
+  padding: 0;
+  border: 0;
+  font: var(--text-subhead);
+  color: var(--label);
+  background: transparent;
+}
+
+.field__input:focus { outline: none; box-shadow: none; }
+.field__input::placeholder { color: var(--label-3); }
+.field__input:disabled { color: var(--label-2); }
+
+.form__error {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: 0 var(--space-1);
+  font: var(--text-footnote);
+  color: var(--risk-high-ink);
+  animation: fade-in var(--dur-base) var(--ease-out) both;
+}
+
+.form__error[hidden] { display: none; }
+.form__error .icon { margin-top: 2px; }
+
+.form__alt {
+  text-align: center;
+  font: var(--text-footnote);
+  color: var(--label-2);
+}
+
+.form__alt a {
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.form__alt a:hover { text-decoration: underline; }

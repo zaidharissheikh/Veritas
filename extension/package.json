@@ -1,0 +1,13 @@
+{
+  "name": "veritas-extension",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Veritas Chrome extension (Manifest V3). No build step: load this folder unpacked.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs"
+  },
+  "devDependencies": {
+    "jsdom": "^25.0.1"
+  }
+}

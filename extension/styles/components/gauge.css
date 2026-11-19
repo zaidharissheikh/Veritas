@@ -1,0 +1,72 @@
+/* 270° arc gauge: tabular number, risk word, label; colour by data-level. */
+
+.gauge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 140px;
+}
+
+.gauge__dial {
+  position: relative;
+  width: 120px;
+  height: 106px;
+}
+
+.gauge__svg {
+  display: block;
+}
+
+.gauge__track,
+.gauge__value {
+  fill: none;
+  stroke-width: 10;
+  stroke-linecap: round;
+}
+
+.gauge__track {
+  stroke: var(--fill);
+}
+
+.gauge__value {
+  stroke: var(--risk-low);
+}
+
+.gauge[data-level="medium"] .gauge__value { stroke: var(--risk-medium); }
+.gauge[data-level="high"] .gauge__value { stroke: var(--risk-high); }
+
+.gauge__center {
+  position: absolute;
+  top: 36px;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gauge__number {
+  font: var(--text-title-1);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: var(--tracking-display);
+  font-variant-numeric: tabular-nums;
+}
+
+.gauge__word {
+  margin-top: var(--space-1);
+  font: var(--text-caption);
+  font-weight: 600;
+  letter-spacing: var(--tracking-small);
+  color: var(--risk-low-ink);
+}
+
+.gauge[data-level="medium"] .gauge__word { color: var(--risk-medium-ink); }
+.gauge[data-level="high"] .gauge__word { color: var(--risk-high-ink); }
+
+.gauge__label {
+  margin-top: -4px;
+  font: var(--text-footnote);
+  color: var(--label-2);
+  text-align: center;
+}

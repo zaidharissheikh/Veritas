@@ -1,0 +1,27 @@
+.history-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.history-filters__segments {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.history-filters__search {
+  flex: 1 1 240px;
+  min-width: 200px;
+  max-width: 360px;
+  margin-inline-start: auto;
+}
+
+@media (max-width: 640px) {
+  .history-filters__search {
+    flex-basis: 100%;
+    max-width: none;
+  }
+}

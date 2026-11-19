@@ -1,0 +1,52 @@
+.demo-chip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: var(--space-1) 10px var(--space-1) var(--space-2);
+  border-radius: var(--radius-pill);
+  background: var(--accent-tint);
+  color: var(--accent);
+  font: var(--text-caption);
+  font-weight: 600;
+  letter-spacing: var(--tracking-small);
+  line-height: 1;
+  white-space: nowrap;
+  cursor: help;
+}
+
+.demo-chip:focus-visible {
+  box-shadow: var(--focus-ring);
+  border-radius: var(--radius-pill);
+}
+
+.demo-chip__tip {
+  position: absolute;
+  top: calc(100% + var(--space-2));
+  right: 0;
+  z-index: 20;
+  width: 240px;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  box-shadow: var(--shadow-float);
+  color: var(--label);
+  font: var(--text-footnote);
+  font-weight: 400;
+  letter-spacing: var(--tracking-body);
+  white-space: normal;
+  text-wrap: pretty;
+  opacity: 0;
+  transform: translateY(-4px) scale(0.98);
+  transform-origin: top right;
+  pointer-events: none;
+  transition:
+    opacity var(--dur-base) var(--ease-out),
+    transform var(--dur-base) var(--ease-out);
+}
+
+.demo-chip:hover .demo-chip__tip,
+.demo-chip:focus-visible .demo-chip__tip {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}

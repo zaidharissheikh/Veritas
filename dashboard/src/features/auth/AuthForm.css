@@ -1,0 +1,21 @@
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.auth-form__actions {
+  display: grid;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.auth-form__actions > * {
+  width: 100%;
+}
+
+.auth-form__hint {
+  text-align: center;
+  font: var(--text-footnote);
+  color: var(--label-2);
+}

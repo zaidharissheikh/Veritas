@@ -1,0 +1,41 @@
+/* Small pills: content type, site, and the honest Demo data marker. */
+
+.chip,
+.demo-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  height: 24px;
+  padding: 0 10px;
+  border-radius: var(--radius-pill);
+  font: var(--text-caption);
+  font-weight: 500;
+  letter-spacing: var(--tracking-small);
+  white-space: nowrap;
+  color: var(--label-2);
+  background: var(--fill);
+}
+
+.chip--type {
+  color: var(--accent);
+  background: var(--accent-tint);
+}
+
+.chip--site {
+  display: inline-block;
+  min-width: 0;
+  max-width: 100%;
+  line-height: 24px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.demo-chip {
+  flex: none;
+  cursor: help;
+}
+
+/* Real backend results carry no chip (BACKEND_CONTRACT §5). */
+.demo-chip[hidden] {
+  display: none;
+}
